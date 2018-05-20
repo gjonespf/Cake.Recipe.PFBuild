@@ -73,4 +73,4 @@ BuildVersion.json
 .buildenv/
 .build-cache/
 gitversion.properties
-
+BuildArtifacts/

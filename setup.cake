@@ -12,7 +12,7 @@ BuildParameters.SetParameters(context: Context,
                             title: "Cake.Recipe.PF",
                             repositoryOwner: "gjones@powerfarming.co.nz",
                             repositoryName: "Cake.Recipe.PF",
-                            nugetFilePath: "Cake.Recipe.nuget"
+                            nuspecFilePath: "Cake.Recipe/Cake.Recipe/Cake.Recipe.nuspec",
                             shouldPostToMicrosoftTeams: true
                             );
 
@@ -36,22 +36,28 @@ BuildParameters.Tasks.CleanTask
 
 BuildParameters.Tasks.RestoreTask.Task.Actions.Clear();
 BuildParameters.Tasks.RestoreTask
-	//.IsDependentOn("Package-Docker")
+	//.IsDependentOn("ATask")
     .Does(() => {
     });
 
 // BuildParameters.Tasks.PackageTask.Task.Actions.Clear();
 // BuildParameters.Tasks.PackageTask
-// 	.IsDependentOn("Package-Docker");
+// 	//.IsDependentOn("ATask")
+//     .Does(() => {
+//         Information("TASK: Package");
+// 	});
 
-// BuildParameters.Tasks.BuildTask.Task.Actions.Clear();
-// BuildParameters.Tasks.BuildTask
-// 	.IsDependentOn("Build-Docker");
+BuildParameters.Tasks.BuildTask.Task.Actions.Clear();
+BuildParameters.Tasks.BuildTask
+	.Does(() => {
+        Information("TASK: Build");
+	});
 
 Task("Publish")
 	.IsDependentOn("Publish-Artifacts")
 	.IsDependentOn("Publish-LocalNuget")
 	.Does(() => {
+        Information("TASK: Publish");
 	});
 
 
