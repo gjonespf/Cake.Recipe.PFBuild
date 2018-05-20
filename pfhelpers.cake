@@ -1,4 +1,4 @@
-#load nuget:https://www.myget.org/F/cake-contrib/api/v2?package=Cake.Recipe&prerelease
+//#load nuget:https://www.myget.org/F/cake-contrib/api/v2?package=Cake.Recipe&prerelease
 // #addin "nuget:https://www.nuget.org/api/v2?package=Newtonsoft.Json"
 // using Newtonsoft.Json;
 // #addin nuget:?package=Cake.Git&version=0.17.0
