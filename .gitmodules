@@ -1,0 +1,3 @@
+[submodule "Cake.Recipe"]
+	path = Cake.Recipe
+	url = https://github.com/gjonespf/Cake.Recipe.git
