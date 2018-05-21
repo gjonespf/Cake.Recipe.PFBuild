@@ -1,4 +1,9 @@
+//#load "nuget:https://nuget.powerfarming.co.nz/api/odata?package=Cake.Recipe&version=0.1.0-cake26-pfcustom0001&prerelease"
+//#load "nuget:https://nuget.powerfarming.co.nz/api/odata?package=Cake.Recipe&prerelease"
+//#load "nuget:https://nuget.powerfarming.co.nz/api/odata?package=Cake.Recipe&version=0.1.0"
+
 #load nuget:https://www.myget.org/F/cake-contrib/api/v2?package=Cake.Recipe&prerelease
+//#load Cake.Recipe/Cake.Recipe/content
 #load pfhelpers.cake
 
 //#define CustomGitVersionTool
