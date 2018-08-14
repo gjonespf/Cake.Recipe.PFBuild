@@ -1,3 +1,6 @@
 [submodule "Cake.Recipe"]
 	path = Cake.Recipe
 	url = https://github.com/gjonespf/Cake.Recipe.git
+[submodule "Cake.Recipe.PFHelpers"]
+	path = Cake.Recipe.PFHelpers
+	url = https://github.com/gjonespf/Cake.Recipe.PFHelpers.git

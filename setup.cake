@@ -23,6 +23,11 @@ BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolSettings(context: Context);
 
+// Setup<ProjectProperties>(setupContext =>
+// {
+// 	return LoadProjectProperties(MakeAbsolute(Directory(".")));
+// });
+
 Task("Init")
     .IsDependentOn("PFInit")
     .IsDependentOn("Generate-Version-File-PF")
@@ -60,8 +65,8 @@ Task("Generate-Version-File-Cake")
         );
     });
 
-// BuildParameters.Tasks.RestoreTask.Task.Actions.Clear();
-// BuildParameters.Tasks.RestoreTask
+//BuildParameters.Tasks.RestoreTask.Task.Clear();
+// BuildParameters.Tasks.RestoreTask = Task("Restore")
 // 	//.IsDependentOn("ATask")
 //     .Does(() => {
 //     });
