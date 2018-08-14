@@ -3,8 +3,9 @@
 
 #load setup.selfbootstrap.cake
 
-//#load pfhelpers.cake
-#load "nuget:https://nuget.powerfarming.co.nz/api/odata?package=Cake.Recipe.PFHelpers&version=0.2.0"
+// Manual addins, for breaking changes
+#load pfhelpers.cake
+//#load "nuget:https://nuget.powerfarming.co.nz/api/odata?package=Cake.Recipe.PFHelpers&version=0.2.0"
 
 Environment.SetVariableNames();
 
@@ -59,11 +60,11 @@ Task("Generate-Version-File-Cake")
         );
     });
 
-BuildParameters.Tasks.RestoreTask.Task.Actions.Clear();
-BuildParameters.Tasks.RestoreTask
-	//.IsDependentOn("ATask")
-    .Does(() => {
-    });
+// BuildParameters.Tasks.RestoreTask.Task.Actions.Clear();
+// BuildParameters.Tasks.RestoreTask
+// 	//.IsDependentOn("ATask")
+//     .Does(() => {
+//     });
 
 // BuildParameters.Tasks.PackageTask.Task.Actions.Clear();
 // BuildParameters.Tasks.PackageTask
@@ -72,11 +73,11 @@ BuildParameters.Tasks.RestoreTask
 //         Information("TASK: Package");
 // 	});
 
-BuildParameters.Tasks.BuildTask.Task.Actions.Clear();
-BuildParameters.Tasks.BuildTask
-	.Does(() => {
-        Information("TASK: Build");
-	});
+// BuildParameters.Tasks.BuildTask.Task.Actions.Clear();
+// BuildParameters.Tasks.BuildTask
+// 	.Does(() => {
+//         Information("TASK: Build");
+// 	});
 
 Task("Publish")
 	.IsDependentOn("Publish-Artifacts")
