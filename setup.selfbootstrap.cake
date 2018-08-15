@@ -1,29 +1,29 @@
 
 // TODO: Self bootstrap
-#load ./Cake.Recipe/Cake.Recipe/content/addins.cake
-#load ./Cake.Recipe/Cake.Recipe/content/build.cake
-#load ./Cake.Recipe/Cake.Recipe/content/credentials.cake
-#load ./Cake.Recipe/Cake.Recipe/content/configuration.cake
-#load ./Cake.Recipe/Cake.Recipe/content/environment.cake
-#load ./Cake.Recipe/Cake.Recipe/content/gitversion.cake
-#load ./Cake.Recipe/Cake.Recipe/content/parameters.cake
-#load ./Cake.Recipe/Cake.Recipe/content/paths.cake
-#load ./Cake.Recipe/Cake.Recipe/content/tools.cake
-#load ./Cake.Recipe/Cake.Recipe/content/toolsettings.cake
-#load ./Cake.Recipe/Cake.Recipe/content/tasks.cake
-#load ./Cake.Recipe/Cake.Recipe/content/version.cake
-#load ./Cake.Recipe/Cake.Recipe/content/buildData.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/addins.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/build.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/credentials.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/configuration.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/environment.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/gitversion.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/parameters.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/paths.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/tools.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/toolsettings.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/tasks.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/version.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/buildData.cake
 
-#load ./Cake.Recipe/Cake.Recipe/content/appveyor.cake
-#load ./Cake.Recipe/Cake.Recipe/content/codecov.cake
-#load ./Cake.Recipe/Cake.Recipe/content/coveralls.cake
-#load ./Cake.Recipe/Cake.Recipe/content/gitlink.cake
-#load ./Cake.Recipe/Cake.Recipe/content/gitreleasemanager.cake
-#load ./Cake.Recipe/Cake.Recipe/content/gitter.cake
-#load ./Cake.Recipe/Cake.Recipe/content/microsoftteams.cake
-#load ./Cake.Recipe/Cake.Recipe/content/nuget.cake
-#load ./Cake.Recipe/Cake.Recipe/content/twitter.cake
-#load ./Cake.Recipe/Cake.Recipe/content/slack.cake
-#load ./Cake.Recipe/Cake.Recipe/content/transifex.cake
-#load ./Cake.Recipe/Cake.Recipe/content/wyam.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/appveyor.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/codecov.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/coveralls.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/gitlink.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/gitreleasemanager.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/gitter.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/microsoftteams.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/nuget.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/twitter.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/slack.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/transifex.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/wyam.cake
 // TODO: Self bootstrap /
