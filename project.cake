@@ -38,6 +38,11 @@ BuildParameters.Tasks.PackageTask
 	.IsDependentOn("Create-NuGet-Package")
 	;
 
+Task("Test")
+    .Does(() => {
+        Information("TASK: Test");
+    });
+
 Task("Publish")
 	.IsDependentOn("Generate-Version-File-PF")
 	.IsDependentOn("Publish-Artifacts")

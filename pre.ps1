@@ -7,3 +7,7 @@ function Create-InitialVersionFile {
 }
 Create-InitialVersionFile
 ## === TWEAK - Create an initial version file, or build will fail first time ===
+
+# Gitversion and Jenkins not playing nice...
+git fetch origin master:master
+git fetch origin develop:develop
