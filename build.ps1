@@ -75,6 +75,16 @@ function MD5HashFile([string] $filePath)
     }
 }
 
+## === TWEAK - Create an initial version file, or build will fail first time ===
+function Create-InitialVersionFile {
+    $versionPath = "./Cake.Recipe/Cake.Recipe/Content/version.cake"
+    if(!(Test-Path $versionPath)) {
+        cp ./version.cake $versionPath
+    }
+}
+Create-InitialVersionFile
+## === TWEAK - Create an initial version file, or build will fail first time ===
+
 Write-Host "Preparing to run build script..."
 
 if(!$PSScriptRoot){

@@ -21,7 +21,7 @@ pipeline {
                 script {
                     if (isUnix()) {
                         echo 'Running on Unix...'
-                        sh "./build.sh -t \"Init\"" 
+                        sh "pwsh ./build.ps1 -t \"Init\"" 
                     } else  {
                         echo 'Running on Windows...'
                         bat "powershell -ExecutionPolicy Bypass -Command \"& './build.ps1' -Target \"Init\"\""
@@ -35,7 +35,7 @@ pipeline {
                 echo 'Building...'
                 script {
                     if (isUnix()) {
-                        sh "./build.sh -t \"Build\"" 
+                        sh "pwsh ./build.ps1 -t \"Build\"" 
                     } else  {
                         bat "powershell -ExecutionPolicy Bypass -Command \"& './build.ps1' -Target \"Build\"\""
                     }
@@ -47,7 +47,7 @@ pipeline {
                 echo 'Packaging...'
                 script {
                     if (isUnix()) {
-                        sh "./build.sh -t \"Package\"" 
+                        sh "pwsh ./build.ps1 -t \"Package\"" 
                     } else  {
                         bat "powershell -ExecutionPolicy Bypass -Command \"& './build.ps1' -Target \"Package\"\""
                     }
@@ -59,7 +59,7 @@ pipeline {
                 echo 'Testing...'
                 script {
                     if (isUnix()) {
-                        sh "./build.sh -t \"Test\"" 
+                        sh "pwsh ./build.ps1 -t \"Test\"" 
                     } else  {
                         bat "powershell -ExecutionPolicy Bypass -Command \"& './build.ps1' -Target \"Test\"\""
                     }
@@ -71,7 +71,7 @@ pipeline {
                 echo 'Publishing...'
                 script {
                     if (isUnix()) {
-                        sh "./build.sh -t \"Publish\"" 
+                        sh "pwsh ./build.ps1 -t \"Publish\"" 
                     } else  {
                         bat "powershell -ExecutionPolicy Bypass -Command \"& './build.ps1' -Target \"Publish\"\""
                     }
@@ -82,7 +82,7 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: '**/.buildenv/$BUILD_ID/**', fingerprint: true
+            archiveArtifacts artifacts: 'BuildArtifacts/**', fingerprint: true
         }
     }
 }

@@ -23,18 +23,13 @@ ToolSettings.SetToolSettings(context: Context);
 Task("Init")
     .IsDependentOn("PFInit")
     .IsDependentOn("Generate-Version-File-PF")
-    .IsDependentOn("Generate-Version-File-Cake")
-	.Does(() => {
-		Information("Init");
-    });
+    .IsDependentOn("Generate-Version-File-Cake");
 
 BuildParameters.Tasks.CleanTask
     .IsDependentOn("PFInit")
     // .IsDependentOn("PFInit-Clean")
     .IsDependentOn("Generate-Version-File-PF")
-    .IsDependentOn("Generate-Version-File-Cake")
-    .Does(() => {
-    });
+    .IsDependentOn("Generate-Version-File-Cake");
 
 Task("Generate-Version-File-Cake")
     .Does(() => {
