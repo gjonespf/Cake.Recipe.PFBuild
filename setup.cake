@@ -8,7 +8,7 @@ BuildParameters.SetParameters(context: Context,
                             repositoryName: "Cake.Recipe.PF",
                             nuspecFilePath: "Cake.Recipe/Cake.Recipe/Cake.Recipe.PF.nuspec",
                             shouldPostToMicrosoftTeams: true,
-                            ShouldRunGitVersion: true
+                            shouldRunGitVersion: true
                             );
 
 BuildParameters.PrintParameters(Context);
