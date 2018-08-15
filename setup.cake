@@ -1,12 +1,3 @@
-//#load "nuget:https://nuget.powerfarming.co.nz/api/odata?package=Cake.Recipe&prerelease"
-//#load nuget:https://www.myget.org/F/cake-contrib/api/v2?package=Cake.Recipe&prerelease
-
-#load setup.selfbootstrap.cake
-
-// Manual addins, for breaking changes
-#load pfhelpers.cake
-//#load "nuget:https://nuget.powerfarming.co.nz/api/odata?package=Cake.Recipe.PFHelpers&version=0.2.0"
-
 Environment.SetVariableNames();
 
 BuildParameters.SetParameters(context: Context,
@@ -20,8 +11,9 @@ BuildParameters.SetParameters(context: Context,
                             );
 
 BuildParameters.PrintParameters(Context);
-
 ToolSettings.SetToolSettings(context: Context);
+
+#load project.cake
 
 // Setup<ProjectProperties>(setupContext =>
 // {
@@ -84,14 +76,16 @@ Task("Generate-Version-File-Cake")
 //         Information("TASK: Build");
 // 	});
 
-Task("Publish")
-	.IsDependentOn("Publish-Artifacts")
-	.IsDependentOn("Publish-LocalNuget")
-	.Does(() => {
-        Information("TASK: Publish");
-	});
+// Task("Publish")
+// 	.IsDependentOn("Publish-Artifacts")
+// 	.IsDependentOn("Publish-LocalNuget")
+// 	.Does(() => {
+//         Information("TASK: Publish");
+// 	});
 
 
+// BuildParameters.Tasks.BuildTask.IsDependentOn("Build-Docker");
+// BuildParameters.Tasks.PackageTask.IsDependentOn("Create-NuGet-Package");
 
 // Simplified...
-Build.RunNuGet();
+Build.RunVanilla();
