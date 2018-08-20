@@ -1,9 +1,9 @@
 Environment.SetVariableNames();
 
+#load project.cake
+
 BuildParameters.PrintParameters(Context);
 ToolSettings.SetToolSettings(context: Context);
-
-#load project.cake
 
 // Simplified...
 Build.RunVanilla();
