@@ -18,13 +18,18 @@ pipeline {
             steps
             {
                 echo 'Preparing...'
+                echo "Using proxy: ${env.HTTP_PROXY}"
                 script {
-                    if (isUnix()) {
-                        echo 'Running on Unix...'
-                        sh "pwsh ./pre.ps1 -t \"Init\"" 
-                    } else  {
-                        echo 'Running on Windows...'
-                        bat "powershell -ExecutionPolicy Bypass -Command \"& './pre.ps1' -Target \"Init\"\""
+                    if(fileExists('./pre.ps1')) {
+                        if (isUnix()) {
+                            echo 'Running on Unix...'
+                            sh "pwsh ./pre.ps1 -t \"Init\"" 
+                        } else  {
+                            echo 'Running on Windows...'
+                            bat "powershell -ExecutionPolicy Bypass -Command \"& './pre.ps1' -Target \"Init\"\""
+                        }
+                    } else {
+                        echo "Skipping prep as no script exists"
                     }
                 }
             }
@@ -104,7 +109,7 @@ pipeline {
     }
 
     post {
-        always {
+        success {
             archiveArtifacts artifacts: 'BuildArtifacts/**', fingerprint: true
         }
     }
