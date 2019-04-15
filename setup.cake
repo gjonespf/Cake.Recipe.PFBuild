@@ -6,4 +6,4 @@ BuildParameters.PrintParameters(Context);
 ToolSettings.SetToolSettings(context: Context);
 
 // Simplified...
-Build.RunVanilla();
+RunTarget(BuildParameters.Target);
