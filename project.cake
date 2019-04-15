@@ -12,7 +12,8 @@ BuildParameters.SetParameters(context: Context,
                             repositoryName: "Cake.Recipe.PF",
                             nuspecFilePath: "Cake.Recipe/Cake.Recipe/Cake.Recipe.PF.nuspec",
                             shouldPostToMicrosoftTeams: true,
-                            shouldRunGitVersion: true
+                            shouldRunGitVersion: true,
+                            shouldRunIngestIssues: true
                             );
 
 Task("Generate-Version-File-Cake")
