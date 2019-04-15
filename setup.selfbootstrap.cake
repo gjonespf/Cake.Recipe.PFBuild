@@ -6,12 +6,14 @@
 #load ./Cake.Recipe/Cake.Recipe/Content/configuration.cake
 #load ./Cake.Recipe/Cake.Recipe/Content/environment.cake
 #load ./Cake.Recipe/Cake.Recipe/Content/gitversion.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/gitreleasemanager.cake
 #load ./Cake.Recipe/Cake.Recipe/Content/parameters.cake
 #load ./Cake.Recipe/Cake.Recipe/Content/paths.cake
 #load ./Cake.Recipe/Cake.Recipe/Content/tools.cake
 #load ./Cake.Recipe/Cake.Recipe/Content/toolsettings.cake
 #load ./Cake.Recipe/Cake.Recipe/Content/tasks.cake
 #load ./Cake.Recipe/Cake.Recipe/Content/version.cake
+#load ./Cake.Recipe/Cake.Recipe/Content/buildProvider.cake
 #load ./Cake.Recipe/Cake.Recipe/Content/buildData.cake
 
 #load ./Cake.Recipe/Cake.Recipe/Content/appveyor.cake
