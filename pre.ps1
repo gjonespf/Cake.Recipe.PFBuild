@@ -15,5 +15,7 @@ function Create-InitialVersionFile {
 Create-InitialVersionFile
 ## === TWEAK - Create an initial version file, or build will fail first time ===
 
+# Ignore this GitTools issue for now
+$env:IGNORE_NORMALISATION_GIT_HEAD_MOVE="1"
 
 
