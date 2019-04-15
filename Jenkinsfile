@@ -24,6 +24,7 @@ node(nodeTag) {
     environment { 
         BUILD_HOST = 'Jenkins'
         NODE_TAG = nodeTag
+        IGNORE_NORMALISATION_GIT_HEAD_MOVE = 1 // Gitversion issue
     }
     // TODO: Define in common lib?
     def credOctoLocal = "e162c9e0-0792-472d-a01e-51f2b7427f2b"
