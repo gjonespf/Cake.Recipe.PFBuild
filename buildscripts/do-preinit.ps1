@@ -48,13 +48,38 @@ function Invoke-GitFetchRemoteBranches($CurrentBranch) {
     git checkout $CurrentBranch
 }
 
+function Install-PrePrerequisites() {
+    $gitps = Get-Module PowerGit -ErrorAction SilentlyContinue
+
+    if(!($gitps)) {
+        Install-Module PowerGit -Scope CurrentUser
+    } else {
+        Update-Module PowerGit
+    }
+}
+
 # TODO: These should also be in the build env setup
 function Install-DotnetBuildTools() {
     dotnet tool install Octopus.DotNet.Cli --global
-    dotnet tool install Cake.Tool --global
-    dotnet tool install Gitversion.Tool --global --version 4.0.1-beta1-59
+    dotnet tool install Cake.Tool --global --version 0.33.0
+    dotnet tool install Gitversion.Tool --global --version 4.0.1-beta1-58
 
     # Make sure tools are in path?
+    #export PATH="$PATH:/root/.dotnet/tools"
+    if(!($env:PATH -match ".dotnet")) {
+        if(Test-Path "~/.dotnet/tools") {
+            $toolsPath = (Resolve-Path "~/.dotnet/tools").Path
+            $env:PATH = $env:PATH + ":$toolsPath"
+        }
+    }
+
+    # Minimum cake versions, should be handled by cake install above...
+    $cakeVersion = [Version](dotnet-cake --version)
+    if($cakeVersion -lt "0.33.0") {
+        dotnet tool update Cake.Tool --global
+    }
+
+    $gitverVersion = (dotnet-gitversion /version)
 }
 
 # TODO: These should also be in the build env setup
@@ -156,6 +181,7 @@ Write-Host "password=$($env:GITKEY)"
 $currentBranch = Get-GitCurrentBranch
 $env:BRANCH_NAME=$env:GITBRANCH=$currentBranch
 
+Install-PrePrerequisites
 Install-NugetCaching
 Clear-GitversionCache
 Install-DotnetBuildTools
