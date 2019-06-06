@@ -180,9 +180,15 @@ Write-Host "password=$($env:GITKEY)"
 # Useful missing vars
 $currentBranch = Get-GitCurrentBranch
 $env:BRANCH_NAME=$env:GITBRANCH=$currentBranch
+$isVSTSNode = $env:VSTS_AGENT
+$isJenkinsNode = $env:JENKINS_HOME
 
 Install-PrePrerequisites
 Install-NugetCaching
 Clear-GitversionCache
 Install-DotnetBuildTools
-Invoke-PreauthSetup
+
+if(!($isVSTSNode) -and !($isJenkinsNode)) {
+    Invoke-PreauthSetup -FetchBranches:($isJenkinsNode)
+}
+
