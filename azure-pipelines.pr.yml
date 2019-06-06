@@ -39,11 +39,11 @@ steps:
       OCTOPUS_CLI_API_KEY: $(OCTOPUS-CLI-APIKEY)
       OCTOPUS_CLI_SERVER: $(OCTOPUS-CLI-SERVER)
 
-- task: NuGetCommand@2
-  displayName: 'Authenticate with NuGet feed'
-  inputs:
-    command: custom
-    arguments: sources update -Name "PowerFarming Nuget" -Source "$(LocalNugetServerUrl)" -Username "$(LocalNugetUserName)" -Password "$(LocalNugetPassword)" -ConfigFile NuGet.Config -StorePasswordInClearText 
+#- task: NuGetCommand@2
+#  displayName: 'Authenticate with NuGet feed'
+#  inputs:
+#    command: custom
+#    arguments: sources update -Name "PowerFarming Nuget" -Source "$(LocalNugetServerUrl)" -Username "$(LocalNugetUserName)" -Password "$(LocalNugetPassword)" -ConfigFile NuGet.Config -StorePasswordInClearText 
 
 # Need prerequisites to use dotnet core first...
 #- powershell: dotnet-cake setup.cake --target="Init" --Verbosity=verbose
