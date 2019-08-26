@@ -9,7 +9,9 @@ trigger:
     - hotfix/*
 
 queue:
-  name: devinf
+  # When I get xplat working...
+  #name: devinf
+  name: Default
 
 variables:
   - group: "PFDev KeyVault Variables"
