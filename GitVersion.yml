@@ -35,7 +35,7 @@ branches:
     is-release-branch: true
   feature:
     regex: features?[/-]
-    mode: ContinuousDelivery
+    mode: ContinuousDeployment
     tag: useBranchName
     increment: Inherit
     prevent-increment-of-merged-branch-version: false
@@ -44,7 +44,7 @@ branches:
     is-release-branch: false
   pull-request:
     regex: (pull|pull\-requests|pr)[/-]
-    mode: ContinuousDelivery
+    mode: ContinuousDeployment
     tag: PullRequest
     increment: Inherit
     prevent-increment-of-merged-branch-version: false
@@ -54,7 +54,7 @@ branches:
     is-release-branch: false
   hotfix:
     regex: hotfix(es)?[/-]
-    mode: ContinuousDelivery
+    mode: ContinuousDeployment
     tag: useBranchName
     increment: Patch
     prevent-increment-of-merged-branch-version: false
@@ -72,7 +72,7 @@ branches:
     is-release-branch: false
   bugfix:
     regex: bugfix(es)?[/-]
-    mode: ContinuousDelivery
+    mode: ContinuousDeployment
     tag: useBranchName
     source-branches: ['unstable', 'develop']
     increment: Patch
