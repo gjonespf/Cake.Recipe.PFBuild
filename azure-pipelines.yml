@@ -17,7 +17,9 @@ variables:
 steps:
 - checkout: self
   clean: true
+  submodules: true
   persistCredentials: true
+
 - task: PowerShell@2
   displayName: Pre initialization
   inputs:
