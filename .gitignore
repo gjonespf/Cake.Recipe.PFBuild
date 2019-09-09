@@ -74,3 +74,6 @@ BuildVersion.json
 .build-cache/
 gitversion.properties
 BuildArtifacts/
+
+# Cake build should gen this
+version.cake

@@ -9,13 +9,16 @@
 git submodule update
 
 ## === TWEAK - Create an initial version file, or build will fail first time ===
-function Create-InitialVersionFile {
+$versionSourcePath = "./version.cake"
+./build.ps1 -target Generate-Version-File-Cake
+
+function Initialize-VersionFile {
     $versionPath = "$PSScriptRoot/Cake.Recipe/Cake.Recipe/Content/version.cake"
     if(!(Test-Path $versionPath)) {
-        cp ./version.cake $versionPath
+        cp $versionSourcePath $versionPath
     }
 }
-Create-InitialVersionFile
+Initialize-VersionFile
 ## === TWEAK - Create an initial version file, or build will fail first time ===
 
 # Ignore this GitTools issue for now
