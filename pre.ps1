@@ -9,10 +9,14 @@
 git submodule update
 
 ## === TWEAK - Create an initial version file, or build will fail first time ===
-$versionSourcePath = "./version.cake"
-./build.ps1 -target Generate-Version-File-Cake
-
 function Initialize-VersionFile {
+
+    # This handles the initial case, otherwise each build should refresh this file
+    $versionSourcePath = "./version.cake"
+    if(!(Test-Path $versionSourcePath)) {
+        cp "./version.default.cake" $versionSourcePath
+    }
+
     $versionPath = "$PSScriptRoot/Cake.Recipe/Cake.Recipe/Content/version.cake"
     if(!(Test-Path $versionPath)) {
         cp $versionSourcePath $versionPath
