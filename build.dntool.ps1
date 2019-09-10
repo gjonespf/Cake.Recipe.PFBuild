@@ -11,7 +11,9 @@ Param(
     [Alias("WhatIf", "Noop")]
     [switch]$DryRun,
     [switch]$Experimental,
-    [version]$CakeVersion = '0.33.0',
+    #[version]$CakeVersion = '0.33.0',
+    [version]$CakeVersion = '0.34.1',
+    [string]$GitVersionVersion = '5.0.2-beta1.51',
     [string]$DotnetToolPath = '.dotnet/tools/',
     [Parameter(Position=0,Mandatory=$false,ValueFromRemainingArguments=$true)]
     [string[]]$ScriptArgs
@@ -42,7 +44,7 @@ $toolvers = ($toollist | Select-Object -Skip 2) | %{ $packageId, $version, $comm
 # TODO: Load from a json config as alternative?
 $defaultToolVers = @(
     New-DotnetToolDefinition -PackageId "cake.tool" -Version $CakeVersion -CommandName "dotnet-cake"
-    New-DotnetToolDefinition -PackageId "gitversion.tool" -Version "5.0.2-beta1.51" -CommandName "dotnet-gitversion"
+    New-DotnetToolDefinition -PackageId "gitversion.tool" -Version $GitVersionVersion -CommandName "dotnet-gitversion"
 )
 
 foreach($tool in $defaultToolVers) {
