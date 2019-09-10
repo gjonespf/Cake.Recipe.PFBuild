@@ -11,9 +11,7 @@ Param(
     [Alias("WhatIf", "Noop")]
     [switch]$DryRun,
     [switch]$Experimental,
-    [switch]$Mono,
-    [version]$CakeVersion = '0.27.2',
-    [switch]$UseNetCore,
+    [version]$CakeVersion = '0.33.0',
     [Parameter(Position=0,Mandatory=$false,ValueFromRemainingArguments=$true)]
     [string[]]$ScriptArgs
 )
@@ -27,6 +25,7 @@ if(!($env:PATH -match ".dotnet") -and $IsLinux) {
     }
 }
 
+# TODO: Pull in specific version of cake listed in $CakeVersion
 if(Get-Command "dotnet-cake" -ErrorAction SilentlyContinue) {
     Write-Information "Running dotnet-cake"
     dotnet-cake $Script --target=$Target

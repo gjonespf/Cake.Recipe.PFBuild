@@ -50,7 +50,7 @@ steps:
 - task: PowerShell@2
   displayName: Initialization
   inputs:
-      filePath: './build.ps1'
+      filePath: './build.dntool.ps1'
       arguments: '-target "Init" -Verbose'
       pwsh: true
   env:
@@ -74,7 +74,7 @@ steps:
 - task: PowerShell@2
   displayName: Build
   inputs:
-      filePath: './build.ps1'
+      filePath: './build.dntool.ps1'
       arguments: '-target "Build" -Verbose'
       pwsh: true
   env:
@@ -95,7 +95,7 @@ steps:
       # Gitversion to build props
       JENKINS_HOME: "~/"
 
-- powershell: .\build.ps1 -target "Test"
+- powershell: .\build.dntool.ps1 -target "Test"
   displayName: Test
   env:
       LocalNugetApiKey: $(LocalNugetApiKey)
@@ -113,7 +113,7 @@ steps:
       CAKE_SETTINGS_SKIPPACKAGEVERSIONCHECK: true
   enabled: false
 
-- powershell: .\build.ps1 -target "Package"
+- powershell: .\build.dntool.ps1 -target "Package"
   displayName: Package
   env:
       LocalNugetApiKey: $(LocalNugetApiKey)
@@ -130,7 +130,7 @@ steps:
       OCTOPUS_CLI_SERVER: $(OCTOPUS-CLI-SERVER)  
       CAKE_SETTINGS_SKIPPACKAGEVERSIONCHECK: true
 
-- powershell: .\build.ps1 -target "Publish"
+- powershell: .\build.dntool.ps1 -target "Publish"
   displayName: Publish
   env:
       LocalNugetApiKey: $(LocalNugetApiKey)
