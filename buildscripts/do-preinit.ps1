@@ -4,8 +4,44 @@
 # Functions
 #===============
 
+# DevOps jiggery pokery
+function Get-GitCurrentBranchVSTS {
+    $currentBranch = ""
+    if($env:Build_SourceBranchName) {
+        Write-Host "Get-GitCurrentBranchVSTS - Got VSTS Source Branch: $($env:Build_SourceBranchName)"
+        $currentBranch = $env:Build_SourceBranchName
+
+        if($env:BUILD_SOURCEBRANCH) {
+            $currentBranch = $env:BUILD_SOURCEBRANCH.substring($env:BUILD_SOURCEBRANCH.indexOf('/', 5) + 1)
+            Write-Host "Get-GitCurrentBranchVSTS - Set to env BUILD_SOURCEBRANCH: $($currentBranch)"
+        }
+        if($env:SOURCEBRANCHFULLNAME) {
+            $currentBranch = $env:SOURCEBRANCHFULLNAME
+            Write-Host "Get-GitCurrentBranchVSTS - Set to env SOURCEBRANCHFULLNAME: $($currentBranch)"
+        }
+    }
+    if($env:System_PullRequest_SourceBranch)
+    {
+        $prSrc = $($env:System_PullRequest_SourceBranch)
+        $prSrc = $prSrc -replace "refs/heads/", ""
+        
+        Write-Host "Get-GitCurrentBranchVSTS - Got VSTS PR Source Branch: $prSrc"
+        $currentBranch = $prSrc
+    }
+    $currentBranch
+}
+
 function Get-GitCurrentBranch {
-    (git symbolic-ref --short HEAD)
+    # Default git
+    $currentBranch = (git symbolic-ref --short HEAD)
+
+    # DevOps jiggery pokery
+    $devopsBranch = Get-GitCurrentBranchVSTS
+    if($devopsBranch) {
+        $currentBranch = $devopsBranch
+    }
+
+    $currentBranch
 }
 
 function Get-GitLocalBranches {
@@ -178,6 +214,7 @@ Write-Host "password=$($env:GITKEY)"
 #===============
 
 # Useful missing vars
+& "$PSScriptRoot/set-base-params.ps1"
 $currentBranch = Get-GitCurrentBranch
 $env:BRANCH_NAME=$env:GITBRANCH=$currentBranch
 $isVSTSNode = $env:VSTS_AGENT
@@ -186,9 +223,12 @@ $isJenkinsNode = $env:JENKINS_HOME
 Install-PrePrerequisites
 Install-NugetCaching
 Clear-GitversionCache
-Install-DotnetBuildTools
+# Install-DotnetBuildTools
 
 if(!($isVSTSNode) -and !($isJenkinsNode)) {
-    Invoke-PreauthSetup -FetchBranches:($isJenkinsNode)
+    Invoke-PreauthSetup -FetchAllBranches:($isJenkinsNode) -CurrentBranch $currentBranch
+} else {
+    # Testing
+    Invoke-PreauthSetup -FetchAllBranches:$false -CurrentBranch $currentBranch
 }
 
