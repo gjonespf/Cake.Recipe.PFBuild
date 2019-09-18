@@ -54,7 +54,7 @@ steps:
   displayName: Initialization
   inputs:
       filePath: './build.dntool.ps1'
-      arguments: '-target "Init" -Verbose'
+      arguments: '-target "Init" -InformationAction Continue -Verbosity $(Verbosity)'
       pwsh: true
   env:
       LocalNugetApiKey: $(LocalNugetApiKey)
@@ -80,7 +80,7 @@ steps:
   displayName: BuildPackagePublish
   inputs:
       filePath: './build.dntool.ps1'
-      arguments: '-target "BuildPackagePublish" -Verbosity verbose'
+      arguments: '-target "BuildPackagePublish" -InformationAction Continue -Verbosity $(Verbosity)'
       pwsh: true
   env:
       LocalNugetApiKey: $(LocalNugetApiKey)

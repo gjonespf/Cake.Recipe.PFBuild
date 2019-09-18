@@ -1,4 +1,6 @@
 // Tasks copied from PFHelpers to reduce dependency
+// TODO: Remove need for these...
+
 Task("BuildPackage")
     .IsDependentOn("Build")
     .IsDependentOn("Package")
@@ -12,7 +14,7 @@ Task("BuildPackagePublish")
     .IsDependentOn("Publish")
     .Does(() => {
 	});
-    
+
 #addin nuget:?package=Newtonsoft.Json&version=11.0.2
 using Newtonsoft.Json;
 public static string ProjectPropertiesFileName = "properties.json";
@@ -70,7 +72,19 @@ public ProjectProperties LoadProjectProperties(DirectoryPath rootPath = null)
     return props;
 }
 
+Setup<ProjectProperties>(setupContext => 
+{
+    try {
+        Verbose("ProjectProperties - Setup");
+        return LoadProjectProperties(null);
+    } catch(Exception ex) {
+        Error("ProjectProperties - Exception while setting up ProjectProperties: " +ex.Dump());
+        return null;
+    }
+});
+
 Task("ConfigureProjectProperties")
+//    .Does(() => {
     .Does<ProjectProperties>(props => {
 
         // Set argument vars from ProjectProperties where applicable
