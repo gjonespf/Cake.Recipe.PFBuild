@@ -87,6 +87,7 @@ steps:
       LocalNugetServerUrl: $(LocalNugetServerUrl)
       LocalNugetUserName: $(LocalNugetUserName)
       LocalNugetPassword: $(LocalNugetPassword)
+      LocalPublicNugetApiKey: $(LocalPublicNugetApiKey)
       GITHUB_API_TOKEN: $(GITHUB-API-TOKEN)
       GITHUB_PASSWORD: $(GITHUB-PASSWORD)
       GITHUB_USERNAME: $(GITHUB-USERNAME)
