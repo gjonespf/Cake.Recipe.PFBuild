@@ -21,6 +21,8 @@ Task("Publish")
 	.IsDependentOn("Generate-Version-File-PF")
 	.IsDependentOn("Publish-Artifacts")
 	.IsDependentOn("Publish-LocalNuget")
+	.IsDependentOn("Publish-LocalPublicNuget")
+	.IsDependentOn("Publish-GitHubNuget")
 	.Does(() => {
         Information("TASK: Publish");
 	});

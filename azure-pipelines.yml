@@ -30,6 +30,9 @@ steps:
       LocalNugetServerUrl: $(LocalNugetServerUrl)
       LocalNugetUserName: $(LocalNugetUserName)
       LocalNugetPassword: $(LocalNugetPassword)
+      #LocalPublicNugetUserName: $(LocalPublicNugetUserName)
+      LocalPublicNugetApiKey: $(LocalPublicNugetApiKey)
+      GITHUB_API_TOKEN: $(GITHUB-API-TOKEN)
       GITHUB_PASSWORD: $(GITHUB-PASSWORD)
       GITHUB_USERNAME: $(GITHUB-USERNAME)
       # May possibly need these?
@@ -58,6 +61,8 @@ steps:
       LocalNugetServerUrl: $(LocalNugetServerUrl)
       LocalNugetUserName: $(LocalNugetUserName)
       LocalNugetPassword: $(LocalNugetPassword)
+      LocalPublicNugetApiKey: $(LocalPublicNugetApiKey)
+      GITHUB_API_TOKEN: $(GITHUB-API-TOKEN)
       GITHUB_PASSWORD: $(GITHUB-PASSWORD)
       GITHUB_USERNAME: $(GITHUB-USERNAME)
       GITUSER: ""
@@ -66,7 +71,7 @@ steps:
       OCTOCLOUDAPIKEY: $(OCTOCLOUDAPIKEY)
       OCTOPUS_CLI_API_KEY: $(OCTOPUS-CLI-APIKEY)
       OCTOPUS_CLI_SERVER: $(OCTOPUS-CLI-SERVER)
-      CAKE_NUGET_USEINPROCESSCLIENT: false
+      CAKE_NUGET_USEINPROCESSCLIENT: true
       CAKE_SETTINGS_SKIPPACKAGEVERSIONCHECK: true
       # Gitversion to build props
       JENKINS_HOME: "~/"
@@ -82,6 +87,7 @@ steps:
       LocalNugetServerUrl: $(LocalNugetServerUrl)
       LocalNugetUserName: $(LocalNugetUserName)
       LocalNugetPassword: $(LocalNugetPassword)
+      GITHUB_API_TOKEN: $(GITHUB-API-TOKEN)
       GITHUB_PASSWORD: $(GITHUB-PASSWORD)
       GITHUB_USERNAME: $(GITHUB-USERNAME)
       GITUSER: ""
@@ -90,7 +96,7 @@ steps:
       OCTOCLOUDAPIKEY: $(OCTOCLOUDAPIKEY)
       OCTOPUS_CLI_API_KEY: $(OCTOPUS-CLI-APIKEY)
       OCTOPUS_CLI_SERVER: $(OCTOPUS-CLI-SERVER)  
-      CAKE_NUGET_USEINPROCESSCLIENT: false
+      CAKE_NUGET_USEINPROCESSCLIENT: true
       CAKE_SETTINGS_SKIPPACKAGEVERSIONCHECK: true
       # Gitversion to build props
       JENKINS_HOME: "~/"
@@ -106,6 +112,7 @@ steps:
 #       LocalNugetServerUrl: $(LocalNugetServerUrl)
 #       LocalNugetUserName: $(LocalNugetUserName)
 #       LocalNugetPassword: $(LocalNugetPassword)
+#      GITHUB_API_TOKEN: $(GITHUB-API-TOKEN)
 #       GITHUB_PASSWORD: $(GITHUB-PASSWORD)
 #       GITHUB_USERNAME: $(GITHUB-USERNAME)
 #       GITUSER: ""
@@ -126,6 +133,7 @@ steps:
 #       LocalNugetServerUrl: $(LocalNugetServerUrl)
 #       LocalNugetUserName: $(LocalNugetUserName)
 #       LocalNugetPassword: $(LocalNugetPassword)
+      # GITHUB_API_TOKEN: $(GITHUB-API-TOKEN)
 #       GITHUB_PASSWORD: $(GITHUB-PASSWORD)
 #       GITHUB_USERNAME: $(GITHUB-USERNAME)
 #       GITUSER: ""
@@ -144,6 +152,7 @@ steps:
 #       LocalNugetServerUrl: $(LocalNugetServerUrl)
 #       LocalNugetUserName: $(LocalNugetUserName)
 #       LocalNugetPassword: $(LocalNugetPassword)
+      # GITHUB_API_TOKEN: $(GITHUB-API-TOKEN)
 #       GITHUB_PASSWORD: $(GITHUB-PASSWORD)
 #       GITHUB_USERNAME: $(GITHUB-USERNAME)
 #       GITUSER: ""
@@ -161,6 +170,7 @@ steps:
 #       LocalNugetServerUrl: $(LocalNugetServerUrl)
 #       LocalNugetUserName: $(LocalNugetUserName)
 #       LocalNugetPassword: $(LocalNugetPassword)
+      # GITHUB_API_TOKEN: $(GITHUB-API-TOKEN)
 #       GITHUB_PASSWORD: $(GITHUB-PASSWORD)
 #       GITHUB_USERNAME: $(GITHUB-USERNAME)
 #       GITUSER: ""
