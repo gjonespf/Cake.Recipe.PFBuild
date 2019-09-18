@@ -36,7 +36,7 @@ if($projDefPathExists) {
         $value = $_.value
         Write-Verbose "properties - $name = $value"
         if(!([Environment]::GetEnvironmentVariable($name) -or $ForceEnv)) {
-            Write-Information "Setting empty env var: $name"
+            Write-Information "Setting empty env var: $name = $value"
             [Environment]::SetEnvironmentVariable($name, $value)
         }
     }
@@ -92,7 +92,7 @@ if($DotnetToolDefinitionsPath -and (Test-Path $DotnetToolDefinitionsPath)) {
 }
 
 Write-Information "Using dotnet-tools versions:"
-$dotnetToolsVersions
+Write-Information $dotnetToolsVersions
 
 Invoke-DotnetToolUpdate -DotnetToolPath $DotnetToolPath -DotnetToolDefinitions $dotnetToolsVersions
 

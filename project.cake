@@ -22,7 +22,7 @@ Task("Publish")
 	.IsDependentOn("Publish-Artifacts")
 	.IsDependentOn("Publish-LocalNuget")
 	.IsDependentOn("Publish-LocalPublicNuget")
-	.IsDependentOn("Publish-GitHubNuget")
+	//.IsDependentOn("Publish-GitHubNuget")
 	.Does(() => {
         Information("TASK: Publish");
 	});
